@@ -1,0 +1,24 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.checkbox-label input {
+    margin-right: 8px;
+}
+
+
+.btn-inscription {
+    @apply border-black font-bold text-black w-full py-3 px-0 sm:px-5 rounded-t-3xl border-t-2 border-l-2 border-r-2 ;
+}
+.chosen {
+    @apply bg-prose-neutral;
+}
+.form-inscription {
+    @apply flex flex-col justify-center items-center w-full sm:w-5/6 md:w-3/4 lg:w-[800px] p-10 mx-0 sm:mx-10 overflow-x-auto border border-solid border-b-selected border-l-selected border-r-selected
+    border-b-2 border-l-2 border-r-2 bg-prose-neutral rounded-b-3xl shadow shadow-2xl shadow-gray-100;
+}
+

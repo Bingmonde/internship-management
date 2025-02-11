@@ -1,0 +1,12 @@
+{
+  "discipline": [
+    {"id":"informatique","en":"Computer Science","fr":"Informatique"},
+    {"id":"tech_infermiere","en":"Nursing","fr":"Soins infirmiers"},
+    {"id":"architechture","en":"Architect","fr":"Architecte"},
+    {"id":"civil_engineer","en":"Civil engineering","fr":"Génie civil"},
+    {"id":"accounting","en":"Accounting and Management","fr":"Comptabilité et gestion"},
+    {"id":"marketing","en":"Marketing","fr":"Commercialisation"},
+    {"id":"social_worker","en":"Social Worker","fr":"Travailleur(euse) social"},
+    {"id":"ec_education","en":"Early Childhood Education","fr":"Éducation de la petite enfance"}
+  ]
+}

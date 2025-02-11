@@ -1,0 +1,15 @@
+
+h2 {
+    margin: auto;
+    width: 100%;
+}
+
+.pageInfo {
+    width: 150px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}

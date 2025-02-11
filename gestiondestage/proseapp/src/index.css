@@ -1,0 +1,276 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@layer base {
+
+  html {
+    @apply bg-[url('assets/image/bg_image.jpg')] bg-cover bg-no-repeat bg-fixed;
+  }
+
+  select {
+    @apply bg-prose-neutral;
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  select.success {
+    border: 2px solid green;
+  }
+}
+
+@layer components {
+  .fullpage-column {
+    @apply w-full sm:w-5/6 md:w-3/4 lg:w-[800px]
+  }
+
+  .fullpage-column-large {
+    @apply w-full sm:w-5/6
+  }
+
+  .form-border {
+    @apply border border-solid border-selected border-2 bg-prose-neutral rounded-3xl shadow shadow-2xl shadow-gray-100;
+  }
+
+  .fullpage-form {
+    /*@apply fullpage-column p-10 mx-0 my-5 sm:mx-10 border border-solid border-neutral-300 bg-prose-neutral rounded-xl;*/
+    @apply fullpage-column p-10 mx-0 my-5 sm:mx-10 form-border overflow-x-auto;
+  }
+  .fullpage-form-large {
+    /*@apply fullpage-column p-10 mx-0 my-5 sm:mx-10 border border-solid border-neutral-300 bg-prose-neutral rounded-xl;*/
+    @apply fullpage-column-large p-10 mx-0 my-5 sm:mx-10 form-border overflow-x-auto;
+  }
+
+  .fullpage-form-center {
+    /*@apply fullpage-column p-10 mx-0 my-5 sm:mx-10 border border-solid border-neutral-300 bg-prose-neutral rounded-xl;*/
+    @apply w-full xl:w-1/2 p-10 rounded border border-2;
+  }
+
+
+  /* Allow divs to simulate buttons when using a button is not possible */
+  .form-button-enabled {
+    @apply cursor-pointer hover:bg-success-hover
+  }
+
+  .form-button-enabled-outlined {
+    @apply cursor-pointer border-greenish hover:border-greenish-hover border-2 text-darkpurple
+  }
+
+  /* Style the submit button */
+
+  .form-button-color {
+    @apply bg-success border-black font-bold text-black
+  }
+
+  .form-button-shape {
+    @apply w-full box-border py-2.5 px-0 sm:px-5 my-2.5 rounded-xl border border-solid border-2;
+  }
+
+  .form-button {
+    /*@apply w-full box-border py-2.5 px-0 sm:px-5 text-white border-none my-2.5 mx-1 sm:mx-2.5 rounded cursor-pointer bg-success hover:bg-success-hover;*/
+    @apply form-button-shape form-button-color enabled:form-button-enabled
+  }
+  .form-button-outlined {
+    /*@apply w-full box-border py-2.5 px-0 sm:px-5 text-white border-none my-2.5 mx-1 sm:mx-2.5 rounded cursor-pointer bg-success hover:bg-success-hover;*/
+    @apply form-button-shape
+  }
+
+  .form-button-inactive {
+    @apply form-button-shape font-bold text-gray-800 border-gray-800 enabled:form-button-color enabled:form-button-enabled
+  }
+
+  .form-button-small {
+    @apply form-button-shape form-button-color enabled:form-button-enabled w-1/4 self-center
+  }
+
+  /* Style small button */
+  .small-button {
+      @apply box-border py-0.5 px-0 sm:px-1 text-white my-0.5 rounded-xl bg-success border border-solid border-2 border-black font-bold text-black enabled:form-button-enabled;
+  }
+
+  .taskbar-button {
+    @apply mx-0 cursor-pointer text-white p-2.5 hover:bg-darkpurple-option font-semibold
+  }
+
+  .taskbar-button.active {
+    @apply bg-success-hover
+  }
+
+  .form-button.chosen {
+    @apply bg-selected
+  }
+
+  .container-center {
+    @apply flex justify-center items-center;
+  }
+
+  /* Style for success and error messages */
+  .success-message {
+    color: green;
+    margin-top: 5px;
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 5px;
+  }
+
+  .bg-moving {
+    animation: bg-move 5s linear infinite;
+    background-size: 100%;
+  }
+
+
+  .card-list{
+    @apply flex flex-wrap justify-center w-full;
+  }
+
+  .card-small {
+    @apply lg:w-1/2 w-5/6 bg-prose-neutral shadow-lg rounded-lg overflow-hidden p-4 m-2 border border-solid border-2 rounded-2xl border-black;
+  }
+  p {
+    @apply text-base py-1
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-center py-5
+  }
+
+  h4 {
+    @apply text-xl font-bold text-center py-2
+  }
+  h5 {
+    @apply text-lg font-bold text-center pt-10 text-greenish border-t-2 border-lightpurple
+  }
+
+
+  .email {
+    @apply text-blue-600 underline
+  }
+
+  .profile {
+    @apply flex flex-col items-center justify-center w-full;
+  }
+  .profile-label {
+    @apply lg:w-1/4  font-bold w-full
+  }
+  .profile-section {
+    @apply lg:w-1/2 w-5/6 bg-prose-neutral p-4 m-2 border border-solid border-2 rounded-2xl border-lightpurple;
+  }
+  .profile-section-title {
+    @apply text-xl text-center py-5 text-darkpurple
+  }
+
+  .card-offer-list {
+    @apply grid grid-cols-1 xl:grid-cols-2 gap-2 overflow-y-auto
+  }
+  .card-offer-list-single-child {
+    @apply mx-auto xl:w-1/2 w-full
+  }
+  .card-offer-list-full-required {
+    @apply mx-auto w-full
+  }
+
+  .card-offer-list-item {
+    @apply border-2 border-lightpurple p-4 w-[calc(100%-16px)] self-center rounded-2xl bg-prose-neutral box-border m-2
+  }
+
+  .card-offer-list-brief {
+    @apply p-4 self-center rounded-2xl m-2
+  }
+
+  .card-offer-list-item:hover {
+    @apply border-2 border-lightpurple p-4 w-[calc(100%-16px)] self-center rounded-2xl bg-lightpurple bg-opacity-20 box-border m-2
+  }
+
+  .card-offer-list-item-lable {
+    @apply w-1/3  font-bold me-2
+  }
+  .button-in-card-small {
+    /*@apply bg-light-green text-darkpurple font-bold py-1 px-2 rounded w-1/2 text-center*/
+    @apply bg-red text-white font-bold py-2 text-center rounded hover:bg-red-hover ml-2
+  }
+  .button-in-card {
+    /*@apply bg-light-green text-darkpurple font-bold py-1 px-2 rounded w-1/2 text-center*/
+    @apply button-in-card-small w-1/2
+  }
+  .button-in-card-neutral-small {
+    @apply bg-light-green text-white font-bold py-2 text-center rounded hover:bg-light-green-hover ml-2 disabled:bg-transparent disabled:text-gray-800 disabled:border-gray-800 disabled:border-solid disabled:border-2
+  }
+  .button-in-card-neutral {
+    @apply button-in-card-neutral-small w-1/2
+  }
+
+  .modal {
+    @apply flex justify-center items-center fixed z-50 left-0 top-0 w-full h-full bg-black bg-opacity-50;
+  }
+  .modal-content {
+    @apply bg-prose-neutral p-4 lg:h-5/6 max-h-full h-full w-4/5 overflow-y-auto  rounded-2xl;
+  }
+  .modal-close {
+    @apply p-2 border-2 border-black rounded-lg bg-selected text-white mx-2 mr-0 md:mr-10 cursor-pointer;
+  }
+  .modal-close:hover {
+    color: black;
+  }
+
+  .btn-actions-basic {
+    @apply  font-bold rounded py-2 text-center mt-2
+  }
+
+  .btn-confirm {
+    @apply bg-greenish hover:bg-darkpurple btn-actions-basic text-white
+  }
+  .btn-cancel {
+      @apply bg-red hover:bg-darkpurple btn-actions-basic text-white
+  }
+  .btn-pending {
+      @apply bg-success-hover hover:bg-success btn-actions-basic text-darkpurple
+  }
+  .btn-neutral {
+    @apply hover:bg-lightpurple bg-darkpurple hover:text-darkpurple text-white  btn-actions-basic
+  }
+
+  .btn-disabled {
+    @apply bg-gray-300 text-gray-800 cursor-not-allowed btn-actions-basic
+  }
+
+  .btn-outlined-neutral {
+    @apply border border-2 border-darkpurple text-darkpurple bg-white hover:border-greenish hover:bg-success btn-actions-basic p-2
+  }
+
+  .report-card {
+  /*@apply w-full rounded px-4 py-3 shadow-md text-white font-bold border-black border-2 text-center;*/
+   @apply card-offer-list-item text-darkpurple
+  }
+  .report-list {
+    @apply grid grid-cols-1 xl:grid-cols-3 gap-2 overflow-y-auto
+  }
+
+
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,9 @@
+.internship-list-container {
+    font-family: Arial, sans-serif;
+}
+
+.internship-table th,
+.internship-table td {
+    @apply border border-solid border-darkpurple p-2 text-left
+}
+

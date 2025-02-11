@@ -1,0 +1,31 @@
+
+
+.basic-status-layout {
+    @apply flex flex-col border-l-4;
+}
+.border-cancelled {
+    @apply border-red;
+}
+
+.border-confirmed {
+    @apply border-greenish;
+}
+
+.border-pending {
+    @apply border-yellow-500;
+}
+
+.bg-status-cancelled {
+    @apply bg-red;
+}
+.bg-status-pending {
+    @apply bg-yellow-500;
+}
+
+.bg-status-confirmed {
+    @apply bg-greenish;
+}
+
+.btn-in-status {
+    @apply text-darkpurple border-darkpurple border-2 py-2 text-center rounded hover:bg-success-hover ml-2 w-1/2 self-center;
+}
