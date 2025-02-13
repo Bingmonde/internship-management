@@ -1,5 +1,6 @@
 package com.prose.entity;
 
+import com.prose.entity.users.ProgramManager;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

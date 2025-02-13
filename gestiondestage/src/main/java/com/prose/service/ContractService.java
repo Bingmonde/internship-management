@@ -2,7 +2,7 @@ package com.prose.service;
 
 import com.prose.entity.Contract;
 import com.prose.entity.InternshipOffer;
-import com.prose.entity.ProgramManager;
+import com.prose.entity.users.ProgramManager;
 import com.prose.entity.notification.Notification;
 import com.prose.entity.notification.NotificationCode;
 import com.prose.entity.users.auth.Role;

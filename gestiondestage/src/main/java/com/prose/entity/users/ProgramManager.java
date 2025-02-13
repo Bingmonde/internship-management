@@ -1,4 +1,4 @@
-package com.prose.entity;
+package com.prose.entity.users;
 
 import com.prose.entity.users.UserState;
 import com.prose.entity.users.auth.Credentials;

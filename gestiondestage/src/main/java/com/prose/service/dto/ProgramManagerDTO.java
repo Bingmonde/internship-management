@@ -1,6 +1,6 @@
 package com.prose.service.dto;
 
-import com.prose.entity.ProgramManager;
+import com.prose.entity.users.ProgramManager;
 
 public record ProgramManagerDTO(
         Long id,

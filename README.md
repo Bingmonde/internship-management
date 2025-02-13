@@ -17,3 +17,6 @@ Development of a bilingual management system for internships Design and implemen
 ## Teamwork experience: ##
 Effective collaboration within an agile team using Jira, Scrum and advanced Git branch management.
 
+
+## Structure diagram ## 
+![](images/prose-structure.jpg)

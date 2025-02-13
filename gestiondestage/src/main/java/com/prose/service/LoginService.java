@@ -1,24 +1,18 @@
 package com.prose.service;
 
-import com.prose.entity.ProgramManager;
 import com.prose.entity.users.UserApp;
 import com.prose.repository.*;
 import com.prose.security.AuthProvider;
 import com.prose.security.JwtTokenProvider;
-import com.prose.security.exception.AuthenticationException;
 import com.prose.security.exception.UserNotFoundException;
 import com.prose.service.Exceptions.InvalidPasswordException;
 import com.prose.service.dto.UserDTO;
 import com.prose.service.dto.auth.JWTAuthResponse;
 import com.prose.service.dto.auth.LoginDTO;
-import com.prose.service.dto.notifications.NotificationRootDTO;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Collection;
 
 @Service
 public class LoginService {

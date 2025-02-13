@@ -2,6 +2,7 @@ package com.prose.gestiondestage.service;
 
 import com.prose.entity.*;
 import com.prose.entity.users.Employeur;
+import com.prose.entity.users.ProgramManager;
 import com.prose.entity.users.Student;
 import com.prose.entity.users.Teacher;
 import com.prose.entity.users.auth.Role;
