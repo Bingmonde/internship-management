@@ -25,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -69,18 +70,6 @@ public class ProgramManagerService {
         this.teacherRepository = teacherRepository;
         this.internshipEvaluationRepository = internshipEvaluationRepository;
         this.academicSessionRepository = academicSessionRepository;
-//        List<ProgramManager> list = getAllProgramManager();
-//        if (list.isEmpty()) {
-//            System.out.println("Creating a new program manager");
-//            ProgramManager programManager = new ProgramManager();
-//            programManager.setNom("test");
-//            programManager.setPrenom("gs");
-//            programManager.setCredentials("gs@email.com",
-//                    passwordEncoder.encode("123456"));
-//            programManager.setAdresse("1000 ici there");
-//            programManager.setTelephone("1234567890");
-//            this.programManagerRepository.save(programManager);
-//        }
         this.notificationService = notificationService;
         this.curriculumVitaeRepository = curriculumVitaeRepository;
         this.studentRepository = studentRepository;
@@ -228,12 +217,6 @@ public class ProgramManagerService {
                 .build());
     }
 
-    /*public List<InternshipOfferDTO> getContracts() {
-        List<InternshipOffer> internshipList = internshipOfferRepository.findInternshipOfferWithOrAwaitingContract();
-        return internshipList.stream().map(InternshipOfferDTO::toDTO).toList();
-    }*/
-
-
     public List<InternshipOfferDTO> getInternsWaitingForAssignmentToProf() throws InternshipNotFoundException {
         // contract is ok, not has internship evalutation
         List<InternshipOffer> internshipList = internshipOfferRepository.findInternshipOfferWithContractAllSigned();
@@ -268,6 +251,7 @@ public class ProgramManagerService {
         session.addJobOffer(jobOffer);
 
         checkIfHaveToCreateNextSession(session);
+
         List<Session> sessions = academicSessionRepository.findAll();
         for (Session s : sessions){
             if (s.getYear().equals(session.getYear()) && s.getSeason().equals(session.getSeason())){
@@ -279,27 +263,25 @@ public class ProgramManagerService {
     }
 
     public Session getCurrentAcademicSession(){
+        System.out.println("enter getCurrentAcademicSession");
+        LocalDate today = LocalDate.now();
         Session currentSession = new Session();
-        currentSession.setYear(String.valueOf(LocalDateTime.now().getYear()));
-        currentSession = getCurrentSeason(currentSession, String.valueOf(LocalDateTime.now().getMonthValue()));
-
+        currentSession.setYear(String.valueOf(today.getYear()));
+        String month = String.format("%02d", today.getMonthValue());
+        currentSession = getCurrentSeason(currentSession, month);
         return checkIfHaveToCreateNextSession(currentSession);
     }
 
     public SessionDTO getCurrentAcademicSessionDTO(){
+        System.out.println("enter getCurrentAcademicSessionDTO");
         return SessionDTO.toDTO(getCurrentAcademicSession());
     }
 
     private Session checkIfHaveToCreateNextSession(Session currentSession) {
-        List<Session> sessions = academicSessionRepository.findAll();
         Session nextSession = getNextSession(currentSession);
-        for(Session s : sessions){
-            if(s.getYear().equals(nextSession.getYear()) && s.getSeason().equals(nextSession.getSeason())){
-                System.out.println("Next session already exists");
-                return s;
-            }
-        }
-        return academicSessionRepository.save(nextSession);
+        System.out.println("Next session: " + nextSession.getYear() + " " + nextSession.getSeason());
+        Optional<Session> nextSessionDB = academicSessionRepository.findSessionByYearAndSeason(nextSession.getYear(), nextSession.getSeason());
+        return nextSessionDB.orElseGet(() -> academicSessionRepository.save(nextSession));
     }
 
     private static Session getCurrentSeason(Session session, String month) {

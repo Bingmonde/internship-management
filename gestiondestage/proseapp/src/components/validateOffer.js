@@ -469,7 +469,7 @@ const ValidateOffer = ({refIds, notificationIds}) => {
                                     </div>
                                     <div className="md:w-2/3">
                                         {/*disciplines selector for filtering students*/}
-                                        <select
+                                        <select className="text-gray-500"
                                             onChange={(e) => {
                                                 setStudentSelected([])
                                                 if (e.target.value !== "0") {
@@ -502,17 +502,7 @@ const ValidateOffer = ({refIds, notificationIds}) => {
                                                          stoppedTyping={setSearchQuery}/>
                                         {students &&
                                             <div className="md:flex md:items-center mb-6">
-                                                {/*<div className="md:w-1/3">*/}
-                                                {/*    <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0*/}
-                                                {/*    pr-4"*/}
-                                                {/*           htmlFor="inline-full-name">*/}
-                                                {/*        Liste des étudiants*/}
-                                                {/*    </label>*/}
-                                                {/*</div>*/}
                                                 <div className="md:w-2/3">
-                                                    {/*<FormProvider {...methods}>*/}
-                                                    {/*    <Input onChange={(event) => setSearchQuery(event.target.value)} {...searchBor}></Input>*/}
-                                                    {/*</FormProvider>*/}
                                                     <ul>
                                                         {students.map((student, index) => (
                                                             <li className={(filterName(student.prenom + " " + student.nom) ? "" : "hidden ") + "p-1"}
@@ -538,30 +528,6 @@ const ValidateOffer = ({refIds, notificationIds}) => {
                                                 </div>
                                             </div>
                                         }
-                                        {/*{!students &&*/}
-                                        {/*    <div className="md:flex md:items-center mb-6">*/}
-                                        {/*        <div className="md:w-1/3">*/}
-                                        {/*            /!*pas traduit*!/*/}
-                                        {/*            /!*<label*!/*/}
-                                        {/*            /!*    className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0*!/*/}
-                                        {/*            /!*    pr-4"*!/*/}
-                                        {/*            /!*    htmlFor="inline-full-name">*!/*/}
-                                        {/*            /!*    Liste des étudiants*!/*/}
-                                        {/*            /!*</label>*!/*/}
-                                        {/*        </div>*/}
-                                        {/*        <div className="md:w-2/3">*/}
-                                        {/*            <input*/}
-                                        {/*                className="bg-gray-200 appearance-none border-2 border-gray-200*/}
-                                        {/*                rounded w-full*/}
-                                        {/*    py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white*/}
-                                        {/*    focus:border-purple-500"*/}
-                                        {/*                id="inline-full-name" type="text" value={t("validateOffers.noStudentsInDiscipline")}*/}
-                                        {/*                readOnly={true}*/}
-                                        {/*            />*/}
-                                        {/*        </div>*/}
-                                        {/*    </div>*/}
-                                        {/*}*/}
-                                        {/*pagination widget*/}
                                         <div className="flex justify-center mt-2">
                                             <PaginationComponent totalPages={totalPagesFromBackend}
                                                                  paginate={(pageNumber) => {

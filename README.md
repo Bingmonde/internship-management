@@ -20,3 +20,32 @@ Effective collaboration within an agile team using Jira, Scrum and advanced Git 
 
 ## Structure diagram ## 
 ![](images/prose-structure.jpg)
+
+
+## main functions and flow ##
+![](images/process.gif)
+
+
+## Example of screenshots ##
+![](images/signup.png)
+
+
+### Student role ###
+![](images/uploadCV.png)
+![](images/interview.png)
+![](images/signContract.png)
+
+
+### Admin role  ###
+![](images/validationCV.png)
+![](images/validJobOffer.png)
+
+### Employer role  ###
+![](images/notifications.png)
+
+![](images/candidates.png)
+
+![](images/contractPDF.png)
+
+### Professor role  ###
+![](images/prof_students-group.png)

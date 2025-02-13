@@ -39,7 +39,6 @@ public class Controller {
     private final StudentService studentService;
     private final EmployeurService employeurService;
     private final TeacherService teacherService;
-    private final ObjectMapper mapper = new ObjectMapper();
     private final LoginService loginService;
     private final ProgramManagerService programManagerService;
     private final JwtTokenProvider jwtTokenProvider;
@@ -1907,16 +1906,23 @@ public class Controller {
     @GetMapping("/currentAcademicSession")
     public ResponseEntity<ResultValue<SessionDTO>> getCurrentAcademicSession(HttpServletRequest request) {
         ResultValue<SessionDTO> resultValue = new ResultValue<>();
-
         String token = request.getHeader("Authorization");
         String jwtUsername = jwtTokenProvider.getJwtUsername(token);
         if (jwtUsername == null) {
             resultValue.setException("JWT");
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resultValue);
         }
+        System.out.println("get current session");
+        try {
+            SessionDTO currentSession = programManagerService.getCurrentAcademicSessionDTO();
+            resultValue.setValue(currentSession);
+            System.out.println("current session: " + resultValue.getValue());
+            return ResponseEntity.ok(resultValue);
+        } catch (Exception e) {
+            resultValue.setException("SessionNotFound");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resultValue);
+        }
 
-        resultValue.setValue(programManagerService.getCurrentAcademicSessionDTO());
-        return ResponseEntity.ok(resultValue);
     }
 
     private ResponseEntity<ResultValue<JobInterviewDTO>> getResultValueResponseEntity(JobInterviewRegisterDTO jobInterviewRegisterDTO, UserDTO userDTO, ResultValue<JobInterviewDTO> resultValue) {

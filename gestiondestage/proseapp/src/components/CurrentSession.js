@@ -12,10 +12,12 @@ export const SessionProvider = ({ children }) => {
             try {
                 const interval = setInterval(async () => {
                     const userInfo = getUserInfo();
+                    console.log('executing getCurrentSession');
 
                     if (userInfo && userInfo.token) {
                         clearInterval(interval); // Arrêter l'intervalle une fois le token disponible
 
+                        console.log("Token disponible, récupération de la session en cours...");
                         const res = await fetch(`http://localhost:8080/currentAcademicSession`, {
                             method: 'GET',
                             headers: {
